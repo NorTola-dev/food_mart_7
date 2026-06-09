@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:storeapp/model/category_model.dart';
 import 'package:storeapp/model/product_model.dart';
+import 'package:storeapp/view/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -145,69 +146,73 @@ class _HomePageState extends State<HomePage> {
 
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 10,
-                          offset: Offset(5, 5)
-                        )
-                      ]
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            pro.discount == 0
-                                ? Text('')
-                                : Container(
-                                    width: 60,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.yellow,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '${pro.discount} %',
-                                      ),
-                                    ),
-                                  ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.favorite_border_outlined),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 150,
-                          width: double.infinity,
-                          child: Image.network(pro.image, fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage(product: pro)));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 10,
+                            offset: Offset(5, 5)
+                          )
+                        ]
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
-                                children: [
-                                  Text(pro.name),
-                                  Text('\$ ${pro.price} / kg')
-                                ],
+                              pro.discount == 0
+                                  ? Text('')
+                                  : Container(
+                                      width: 60,
+                                      height: 30,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.yellow,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '${pro.discount} %',
+                                        ),
+                                      ),
+                                    ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.favorite_border_outlined),
                               ),
-                              CircleAvatar(radius: 25,
-                                backgroundColor: Colors.amber,
-                                child: Icon(Icons.shopping_bag_outlined),
-                              
-                              )
                             ],
                           ),
-                        )
-                      ],
+                          SizedBox(
+                            height: 150,
+                            width: double.infinity,
+                            child: Image.network(pro.image, fit: BoxFit.cover,),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(pro.name),
+                                    Text('\$ ${pro.price} / kg')
+                                  ],
+                                ),
+                                CircleAvatar(radius: 25,
+                                  backgroundColor: Colors.amber,
+                                  child: Icon(Icons.shopping_bag_outlined),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 );

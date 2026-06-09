@@ -6,6 +6,7 @@ class ProductModel {
   double price;
   String des;
   double discount;
+  bool isFav;
   ProductModel({
     required this.id,
     required this.image,
@@ -13,7 +14,8 @@ class ProductModel {
     required this.type,
     required this.price,
     required this.des,
-    required this.discount
+    required this.discount,
+    required this.isFav
   });
 }
 
@@ -25,7 +27,8 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.5,
     des: 'Fresh red apple, sweet and crisp.',
-    discount: 0
+    discount: 0,
+    isFav: false,
   ),
   ProductModel(
     id: 2,
@@ -34,7 +37,8 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 2.0,
     des: 'Organic broccoli, rich in vitamins.',
-    discount: 0
+    discount: 0,
+    isFav: false
   ),
   ProductModel(
     id: 3,
@@ -43,7 +47,8 @@ List<ProductModel> products = [
     type: 'Snack',
     price: 3.5,
     des: 'Buttery popcorn, perfect for movies.',
-    discount: 50
+    discount: 50,
+    isFav: false
   ),
   ProductModel(
     id: 4,
@@ -52,7 +57,8 @@ List<ProductModel> products = [
     type: 'Fish',
     price: 12.0,
     des: 'Fresh Atlantic salmon fillet.',
-    discount: 0
+    discount: 0,
+    isFav: false
   ),
   ProductModel(
     id: 5,
@@ -61,7 +67,8 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.2,
     des: 'Ripe yellow bananas, perfect for snacks.',
-    discount: 10
+    discount: 10,
+    isFav: false
   ),
   ProductModel(
     id: 6,
@@ -70,7 +77,8 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 1.8,
     des: 'Crunchy carrots, full of nutrients.',
-    discount: 20
+    discount: 20,
+    isFav: false
   ),
   ProductModel(
     id: 7,
@@ -79,7 +87,8 @@ List<ProductModel> products = [
     type: 'Meat',
     price: 8.0,
     des: 'Lean chicken breast, high in protein.',
-    discount: 30
+    discount: 30,
+    isFav: false
   ),
   ProductModel(
     id: 8,
@@ -88,7 +97,8 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.4,
     des: 'Juicy oranges, rich in vitamin C.',
-    discount: 40
+    discount: 40,
+    isFav: false
   ),
   ProductModel(
     id: 9,
@@ -97,7 +107,8 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 1.0,
     des: 'Golden potatoes, great for fries and mash.',
-    discount: 0
+    discount: 0,
+    isFav: false
   ),
   ProductModel(
     id: 10,
@@ -106,6 +117,7 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 2.5,
     des: 'Sweet strawberries, perfect for desserts.',
-    discount: 0
+    discount: 0,
+    isFav: false
   ),
 ];

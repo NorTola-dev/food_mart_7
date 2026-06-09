@@ -5,6 +5,7 @@ class ProductModel {
   String type;
   double price;
   String des;
+  double discount;
   ProductModel({
     required this.id,
     required this.image,
@@ -12,6 +13,7 @@ class ProductModel {
     required this.type,
     required this.price,
     required this.des,
+    required this.discount
   });
 }
 
@@ -23,6 +25,7 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.5,
     des: 'Fresh red apple, sweet and crisp.',
+    discount: 0
   ),
   ProductModel(
     id: 2,
@@ -31,6 +34,7 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 2.0,
     des: 'Organic broccoli, rich in vitamins.',
+    discount: 0
   ),
   ProductModel(
     id: 3,
@@ -39,6 +43,7 @@ List<ProductModel> products = [
     type: 'Snack',
     price: 3.5,
     des: 'Buttery popcorn, perfect for movies.',
+    discount: 50
   ),
   ProductModel(
     id: 4,
@@ -47,6 +52,7 @@ List<ProductModel> products = [
     type: 'Fish',
     price: 12.0,
     des: 'Fresh Atlantic salmon fillet.',
+    discount: 0
   ),
   ProductModel(
     id: 5,
@@ -55,6 +61,7 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.2,
     des: 'Ripe yellow bananas, perfect for snacks.',
+    discount: 10
   ),
   ProductModel(
     id: 6,
@@ -63,6 +70,7 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 1.8,
     des: 'Crunchy carrots, full of nutrients.',
+    discount: 20
   ),
   ProductModel(
     id: 7,
@@ -71,6 +79,7 @@ List<ProductModel> products = [
     type: 'Meat',
     price: 8.0,
     des: 'Lean chicken breast, high in protein.',
+    discount: 30
   ),
   ProductModel(
     id: 8,
@@ -79,6 +88,7 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 1.4,
     des: 'Juicy oranges, rich in vitamin C.',
+    discount: 40
   ),
   ProductModel(
     id: 9,
@@ -87,6 +97,7 @@ List<ProductModel> products = [
     type: 'Vegetable',
     price: 1.0,
     des: 'Golden potatoes, great for fries and mash.',
+    discount: 0
   ),
   ProductModel(
     id: 10,
@@ -95,5 +106,6 @@ List<ProductModel> products = [
     type: 'Fruit',
     price: 2.5,
     des: 'Sweet strawberries, perfect for desserts.',
+    discount: 0
   ),
 ];

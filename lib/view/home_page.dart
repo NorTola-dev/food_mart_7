@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:storeapp/model/add_to_cart_model.dart';
 import 'package:storeapp/model/category_model.dart';
 import 'package:storeapp/model/product_model.dart';
+import 'package:storeapp/view/add_to_cart_screen.dart';
 import 'package:storeapp/view/detail_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,19 +31,25 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         actions: [
-          Container(
-            width: 70,
-            height: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.black,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(Icons.shopping_bag_outlined, color: Colors.white),
-                Text('0', style: TextStyle(color: Colors.white)),
-              ],
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
+              print(addProducts.length);
+            },
+            child: Container(
+              width: 70,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.black,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(Icons.shopping_bag_outlined, color: Colors.white),
+                  Text('0', style: TextStyle(color: Colors.white)),
+                ],
+              ),
             ),
           ),
           SizedBox(width: 10),

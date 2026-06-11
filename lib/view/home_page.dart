@@ -33,7 +33,10 @@ class _HomePageState extends State<HomePage> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddToCartScreen()),
+              );
               print(addProducts.length);
             },
             child: Container(
@@ -149,14 +152,18 @@ class _HomePageState extends State<HomePage> {
               ),
               itemCount: 10,
               itemBuilder: (context, index) {
-
                 var pro = products[index];
 
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage(product: pro)));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(product: pro),
+                        ),
+                      );
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -166,9 +173,9 @@ class _HomePageState extends State<HomePage> {
                           BoxShadow(
                             color: Colors.grey,
                             blurRadius: 10,
-                            offset: Offset(5, 5)
-                          )
-                        ]
+                            offset: Offset(5, 5),
+                          ),
+                        ],
                       ),
                       child: Column(
                         children: [
@@ -185,21 +192,25 @@ class _HomePageState extends State<HomePage> {
                                         color: Colors.yellow,
                                       ),
                                       child: Center(
-                                        child: Text(
-                                          '${pro.discount} %',
-                                        ),
+                                        child: Text('${pro.discount} %'),
                                       ),
                                     ),
                               IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.favorite_border_outlined),
+                                onPressed: () {
+                                  setState(() {
+                                    pro.isFav = !pro.isFav;
+                                  });
+                                },
+                                icon: pro.isFav
+                                    ? Icon(Icons.favorite, color: Colors.red)
+                                    : Icon(Icons.favorite_border_outlined),
                               ),
                             ],
                           ),
                           SizedBox(
                             height: 150,
                             width: double.infinity,
-                            child: Image.network(pro.image, fit: BoxFit.cover,),
+                            child: Image.network(pro.image, fit: BoxFit.cover),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -209,16 +220,17 @@ class _HomePageState extends State<HomePage> {
                                 Column(
                                   children: [
                                     Text(pro.name),
-                                    Text('\$ ${pro.price} / kg')
+                                    Text('\$ ${pro.price} / kg'),
                                   ],
                                 ),
-                                CircleAvatar(radius: 25,
+                                CircleAvatar(
+                                  radius: 25,
                                   backgroundColor: Colors.amber,
                                   child: Icon(Icons.shopping_bag_outlined),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

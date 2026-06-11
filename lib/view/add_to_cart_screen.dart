@@ -9,13 +9,10 @@ class AddToCartScreen extends StatefulWidget {
 }
 
 class _AddToCartScreenState extends State<AddToCartScreen> {
+  TextEditingController numController = TextEditingController();
   double sum = 0;
-
   @override
   Widget build(BuildContext context) {
-    for (var e in addProducts) {
-      sum += e.price * e.qty;
-    }
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -41,14 +38,64 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                   ),
                   title: Text(pro.name),
                   subtitle: Text((pro.price * pro.qty).toString()),
-                  trailing: Text(pro.qty.toString()),
+                  trailing: Container(
+                    height: 50,
+                    width: 200,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            
+
+                            if (pro.qty > 0) {
+                              setState(() {
+                                pro.qty--;
+                                for (var e in addProducts) {
+                                  sum -= e.price * e.qty;
+                                }
+
+                                if(pro.qty == 0){
+                              addProducts.removeAt(index);
+                            }
+                              });
+                            }
+                          },
+                          icon: Icon(Icons.remove_circle_outline),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: TextField(
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              hintStyle: TextStyle(fontSize: 20),
+                              hintText: pro.qty.toString(),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              pro.qty++;
+                              for (var e in addProducts) {
+                                sum += e.price * e.qty;
+                              }
+                            });
+                          },
+                          icon: Icon(Icons.add_circle_outline),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
               },
             ),
             SizedBox(height: 500),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [Text('Total'), Text('\$$sum')],
+              children: [Text('Amount'), Text('\$$sum')],
             ),
           ],
         ),

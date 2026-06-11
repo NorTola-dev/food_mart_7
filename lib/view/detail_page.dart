@@ -136,6 +136,7 @@ class _DetailPageState extends State<DetailPage> {
                         name: widget.product.name,
                         qty: qty,
                         price: price,
+                        total: price * qty
                       ),
                     );
                     print(addProducts.length);
@@ -183,6 +184,7 @@ class _DetailPageState extends State<DetailPage> {
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                   hintStyle: TextStyle(fontSize: 20),
+                                  hintText: qty.toString(),
                                   border: InputBorder.none,
                                 ),
                                 onChanged: (value) {
